@@ -1,5 +1,7 @@
 * {
     box-sizing: border-box;
+    --primary-color: #2d2e30;
+    --secondary-color: #42bcf4;
 }
 body {
     margin: 0;
@@ -12,8 +14,9 @@ body {
 #site-header {
     width: 100%;
     height: 65px;
-
     border-bottom: 1px solid #ddd;
+
+    display: flex;
 }
 
 #nav-button {
@@ -41,8 +44,30 @@ body {
 }
 
 #nav-site-logo {
+    margin: auto;
     display: inline-block;
     position: relative;
+    left: -20px;
+}
+
+#nav-site-logo a img {
+    display: inline;
+    height: 35px;
+    vertical-align: middle;
+}
+
+#nav-site-logo a span {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    vertical-align: middle;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 18px;
+    letter-spacing: 1.0px;
+    color: var(--secondary-color);
+    font-weight: 700;
+    text-align: center;
 }
 
 /* Slide in nav menu */
@@ -59,6 +84,10 @@ body {
     transition: left .3s ease-out;
     -webkit-transition: left .3s ease-out;
     left: -250px;
+}
+
+.nav-menu-desktop {
+    display: none;
 }
 
 .open {
@@ -217,6 +246,9 @@ button.nav-menu {
 }
 
 @media only screen and (min-width: 550px) {
+    #site-header {
+        max-width: 1400px;
+    }
     .posts {
         margin: auto;
         max-width: 1000px;;
@@ -241,7 +273,49 @@ button.nav-menu {
 
 }
 
+@media only screen and (min-width: 1000px) {
+    #site-header {
+        max-width: 1000px;
+    }
+    #nav-button {
+        display: none;
+    }
+
+    #nav-site-logo {
+        margin: auto 0;
+    }
+
+    .nav-menu-desktop {
+        margin: 0;
+        display: flex;
+
+    }
+
+    .nav-menu-desktop li {
+        list-style: none;
+        display: inline-block;
+        margin: auto 20px;
+        
+    }
+
+    .nav-menu-desktop li a {
+        display: block;
+        text-decoration: none;
+        color: var(--primary-color);
+        font-weight: 100;
+    }
+
+    .nav-menu-desktop li a:hover {
+        color: var(--secondary-color);
+        text-decoration: underline;
+    }
+
+}
+
 @media only screen and (min-width: 1200px) {
+    #site-header {
+        max-width: 1400px;
+    }
     .posts {
         max-width: 1400px;
         margin: auto;
